@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-header pb-0 bg-lumiere">
+        <div class="d-flex align-items-center">
+            <h5 class="mb-1 text-white">Permisos</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+                <app-select [etiqueta]="'Tipos de usuario'" [datos]="datos" (emitidor)="idTipoUsuario = $event; mostrar();"></app-select>
+            </div>
+            <div *ngFor="let modulo of permisos">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <app-checktimes [activo]="modulo.activo" [icono]="modulo.icono" [texto]="modulo.nombre" (emitidor)="($event) ? activarModulo(modulo.id) : desactivarModulo(modulo.id);"></app-checktimes>
+                    </div>
+                </div>
+                <div class="row">
+                    <div *ngFor="let opcion of modulo.opciones">
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-11">
+                                <app-checktimes [activo]="opcion.activo" [icono]="opcion.icono" [texto]="opcion.nombre" (emitidor)="($event) ? activarOpcion(opcion.id) : desactivarOpcion(opcion.id);"></app-checktimes>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-cargando *ngIf="cargando"></app-cargando>

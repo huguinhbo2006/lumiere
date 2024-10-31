@@ -1,0 +1,61 @@
+<div class="card">
+    <div class="card-header pb-0 bg-lumiere">
+        <div class="d-flex align-items-center">
+            <h5 class="mb-1 text-white">Alta de cursos</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row" *ngIf="seleccion === undefined">
+                <div class="col-sm-6">
+                    <button class="btn btn-success" (click)="modal('nuevo')">Nueva alta de cursos</button>
+                </div>
+                <div class="col-sm-6">
+                    <app-checktimes [texto]="'Buscar'" [activo]="search" (emitidor)="search = $event;"></app-checktimes>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <app-datatable [configuracion]="configuracion" [datos]="datos" (emitidor)="seleccion = $event;"></app-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-busquedas *ngIf="search" (emitidor)="search = false;">
+    <div class="row">
+        <div class="col-sm-12">
+            <app-select [datos]="listas.calendarios" [etiqueta]="'Calendario'" (emitidor)="this.busqueda.idCalendario = $event; buscar();"></app-select>
+        </div>
+        <div class="col-sm-12">
+            <app-select [datos]="listas.niveles" [etiqueta]="'Nivel'" (emitidor)="this.busqueda.idNivel = $event; buscar();"></app-select>
+        </div>
+        <div class="col-sm-12">
+            <app-select [datos]="listas.subniveles" [etiqueta]="'Subnivel'" (emitidor)="this.busqueda.idSubnivel = $event; buscar();"></app-select>
+        </div>
+        <div class="col-sm-12">
+            <app-select [datos]="listas.cursos" [etiqueta]="'Cu0rso'" (emitidor)="this.busqueda.idCurso = $event; buscar();"></app-select>
+        </div>
+        <div class="col-sm-12">
+            <app-select [datos]="listas.modalidades" [etiqueta]="'Modalidad'" (emitidor)="this.busqueda.idModalidad = $event; buscar();"></app-select>
+        </div>
+        <div class="col-sm-12">
+            <app-select [datos]="listas.categorias" [etiqueta]="'Categoria'" (emitidor)="this.busqueda.idCategoria = $event; buscar();"></app-select>
+        </div>
+        <div class="col-sm-12">
+            <app-select [datos]="listas.sedes" [etiqueta]="'Sede'" (emitidor)="this.busqueda.idSede = $event; buscar();"></app-select>
+        </div>
+    </div>
+</app-busquedas>
+<app-cargando *ngIf="cargando"></app-cargando>
+<app-botones *ngIf="seleccion !== undefined">
+    <button class="btn btn-success" (click)="modal('nuevo');">Nueva alta de cursos</button>
+    <button class="btn btn-yellow" (click)="modal('modificar');">Modificar alta de cursos</button>
+    <button class="btn btn-danger" (click)="eliminar();">Eliminar alta de cursos</button>
+    <button class="btn btn-info" (click)="modal('horarios');">Horarios</button>
+</app-botones>
+<app-modal [ngSwitch]="vista">
+    <app-modal-alta-cursos *ngSwitchCase="'nuevo'" [listas]="listas" [modificar]="false" (emitidor)="nuevo($event);"></app-modal-alta-cursos>
+    <app-modal-alta-cursos *ngSwitchCase="'modificar'" [listas]="listas" [modificar]="true" [dato]="seleccion" (emitidor)="modificar($event);"></app-modal-alta-cursos>
+    <app-modal-horarios *ngSwitchCase="'horarios'"></app-modal-horarios>
+</app-modal>

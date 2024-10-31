@@ -1,0 +1,7 @@
+<div class="form-group">
+    <label class="form-control-label" for="{{ id }}">
+        <span class="text-danger" *ngIf="obligatorio">*</span>{{etiqueta}}
+    </label>
+    <textarea id="{{ id }}" class="form-control form-control-alternative" placeholder="{{ place }}" [disabled]="activo" [(ngModel)]="valor" (keyup)="emitir()" (change)="emitir()">
+    </textarea>
+</div>

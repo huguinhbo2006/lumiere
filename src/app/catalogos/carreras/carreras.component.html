@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header pb-0 bg-lumiere">
+        <div class="d-flex align-items-center">
+            <h5 class="mb-1 text-white">Carreras</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row" *ngIf="seleccion === undefined">
+                <div class="col-sm-6">
+                    <button class="btn btn-success" (click)="modal('nuevo')">Agregar Carrera</button>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-success" (click)="modal('excel')">Cargar Excel</button>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <app-select [etiqueta]="'Universidad'" [datos]="listas.universidades" (emitidor)="busqueda.idUniversidad = $event; buscarCentrosUniversitarios()"></app-select>
+                </div>
+                <div class="col-sm-4">
+                    <app-select [etiqueta]="'Centro Universitario'" [datos]="listaCentrosUniversitarios" (emitidor)="busqueda.idCentroUniversitario = $event; buscar();"></app-select>
+                </div>
+                <div class="col-sm-4">
+                    <app-select [etiqueta]="'Calendario'" [datos]="listas.calendarios" (emitidor)="busqueda.idCalendario = $event; buscar();"></app-select>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-sm-12">
+                    <app-datatable [configuracion]="configuracion" [datos]="datos" (emitidor)="seleccion = $event;"></app-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-cargando *ngIf="cargando"></app-cargando>
+<app-botones *ngIf="seleccion !== undefined">
+    <button class="btn btn-success" (click)="modal('nuevo');">Agregar Carrera</button>
+    <button class="btn btn-success" (click)="modal('excel')">Cargar Excel</button>
+    <button class="btn btn-yellow" (click)="modal('modificar');">Modificar Carrera</button>
+    <button class="btn btn-danger" *ngIf="!seleccion.activo" (click)="activar();">Activar Carrera</button>
+    <button class="btn btn-success" *ngIf="seleccion.activo" (click)="desactivar();">Desactivar Carrera</button>
+    <button class="btn btn-danger" (click)="eliminar();">Eliminar Carrera</button>
+</app-botones>
+<app-modal [ngSwitch]="vista">
+    <app-modal-carrera *ngSwitchCase="'nuevo'" [listas]="listas" [modificar]="false" (emitidor)="nuevo($event);"></app-modal-carrera>
+    <app-modal-carrera *ngSwitchCase="'modificar'" [listas]="listas" [modificar]="true" [dato]="seleccion" (emitidor)="modificar($event);"></app-modal-carrera>
+    <app-file *ngSwitchCase="'excel'" [etiqueta]="'Cargar Archivo'" (emitidor)="excel = $event; cargar();"></app-file>
+</app-modal>

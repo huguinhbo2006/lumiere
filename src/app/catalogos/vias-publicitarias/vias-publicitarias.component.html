@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-header pb-0 bg-lumiere">
+        <div class="d-flex align-items-center">
+            <h5 class="mb-1 text-white">Vias publicitarias</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row" *ngIf="seleccion === undefined">
+                <div class="col-sm-12">
+                    <button class="btn btn-success" (click)="modal('nuevo')">Agregar Via publicitaria</button>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-sm-12">
+                    <app-select [datos]="lista" (emitidor)="busqueda = $event; buscar()"></app-select>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-sm-12">
+                    <app-datatable [configuracion]="configuracion" [datos]="datos" (emitidor)="seleccion = $event;"></app-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-cargando *ngIf="cargando"></app-cargando>
+<app-botones *ngIf="seleccion !== undefined">
+    <button class="btn btn-success" (click)="modal('nuevo');">Agregar Via publicitaria</button>
+    <button class="btn btn-yellow" (click)="modal('modificar');">Modificar Via publicitaria</button>
+    <button class="btn btn-danger" *ngIf="!seleccion.activo" (click)="activar();">Activar Via publicitaria</button>
+    <button class="btn btn-success" *ngIf="seleccion.activo" (click)="desactivar();">Desactivar Via publicitaria</button>
+    <button class="btn btn-danger" (click)="eliminar();">Eliminar Via publicitaria</button>
+</app-botones>
+<app-modal [ngSwitch]="vista">
+    <app-modal-via-publicitaria *ngSwitchCase="'nuevo'" [lista]="lista" [modificar]="false" (emitidor)="nuevo($event);"></app-modal-via-publicitaria>
+    <app-modal-via-publicitaria *ngSwitchCase="'modificar'" [lista]="lista" [modificar]="true" [dato]="seleccion" (emitidor)="modificar($event);"></app-modal-via-publicitaria>
+</app-modal>

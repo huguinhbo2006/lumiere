@@ -1,0 +1,47 @@
+<div class="card">
+    <div class="card-header pb-0 bg-lumiere">
+        <div class="d-flex align-items-center">
+            <h5 class="mb-1 text-white">Modulos</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row" *ngIf="seleccion === undefined">
+                <div class="col-sm-12">
+                    <button class="btn btn-success" (click)="modal('nuevo')">Agregar Modulo</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <app-datatable [configuracion]="configuracion" [datos]="datos" (emitidor)="seleccion = $event; opciones();"></app-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-cargando *ngIf="cargando"></app-cargando>
+<app-botones *ngIf="seleccion !== undefined">
+    <button class="btn btn-success" (click)="modal('nuevo');">Agregar Modulo</button>
+    <button class="btn btn-yellow" (click)="modal('modificar');">Modificar Modulo</button>
+    <button class="btn btn-danger" *ngIf="!seleccion.activo" (click)="activar();">Activar Modulo</button>
+    <button class="btn btn-success" *ngIf="seleccion.activo" (click)="desactivar();">Desactivar Modulo</button>
+    <button class="btn btn-danger" (click)="eliminar();">Eliminar Modulo</button>
+    <button class="btn btn-success" (click)="modal('opcion');">Agregar Opcion</button>
+</app-botones>
+<app-busquedas *ngIf="seleccion !== undefined">
+    <div *ngFor="let opcion of listaOpciones">
+        <div class="row">
+            <div class="col-sm-1">
+                <i class="fas fa-{{opcion.icono}} {{opcion.color}}"></i>
+            </div>
+            <div class="col-sm-11">
+                {{opcion.nombre}}
+            </div>
+        </div>
+    </div>
+</app-busquedas>
+<app-modal [ngSwitch]="vista">
+    <app-modal-modulo *ngSwitchCase="'nuevo'" [modificar]="false" (emitidor)="nuevo($event);"></app-modal-modulo>
+    <app-modal-modulo *ngSwitchCase="'modificar'" [modificar]="true" [dato]="seleccion" (emitidor)="modificar($event);"></app-modal-modulo>
+    <app-modal-opcion *ngSwitchCase="'opcion'" [modificar]="false" [modulo]="seleccion.nombre" (emitidor)="agregarOpcion($event);"></app-modal-opcion>
+</app-modal>

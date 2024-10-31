@@ -1,0 +1,10 @@
+.loading {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 100000;
+}

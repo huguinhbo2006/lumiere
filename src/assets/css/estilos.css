@@ -1,0 +1,143 @@
+.amo {
+    cursor: pointer;
+}
+
+
+/*colores*/
+
+.text-purple {
+    color: purple;
+}
+
+.text-orange {
+    color: orange;
+}
+
+.text-blue {
+    color: blue;
+}
+
+.text-yellow {
+    color: yellow;
+}
+
+.text-cyan {
+    color: cyan;
+}
+
+.text-gray {
+    color: gray;
+}
+
+.text.black {
+    color: black;
+}
+
+.text-indigo {
+    color: indigo;
+}
+
+.text-pink {
+    color: pink;
+}
+
+.text-teal {
+    color: teal;
+}
+
+.text-green {
+    color: green;
+}
+
+.text-red {
+    color: red;
+}
+
+
+/*fondos*/
+
+.bg-purple {
+    background-color: purple;
+    color: white;
+}
+
+.bg-purple:hover {
+    background-color: purple;
+}
+
+.bg-purple {
+    background-color: purple;
+}
+
+.bg-yellow {
+    background-color: yellow;
+    color: black !important;
+}
+
+.bg-yellow h4 {
+    background-color: yellow;
+    color: black !important;
+}
+
+.bg-lumiere {
+    background-color: #016BA6;
+}
+
+.bg-green {
+    background-color: #2dce89;
+    color: white;
+}
+
+.bg-red {
+    background-color: #f5365c;
+    color: white;
+}
+
+.mayusculas {
+    text-transform: uppercase;
+}
+
+.card {
+    min-height: 100vh;
+}
+
+
+/*botones*/
+
+.btn-yellow {
+    --bs-btn-color: black;
+    --bs-btn-bg: yellow;
+    --bs-btn-border-color: red;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: yellow;
+    --bs-btn-hover-border-color: pink;
+    --bs-btn-focus-shadow-rgb: 14, 174, 203;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: yellow;
+    --bs-btn-active-border-color: black;
+    --bs-btn-active-shadow: none;
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: yellow;
+    --bs-btn-disabled-border-color: black;
+}
+
+.btn-purple {
+    --bs-btn-color: white;
+    --bs-btn-bg: purple;
+    --bs-btn-border-color: black;
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: purple;
+    --bs-btn-hover-border-color: pink;
+    --bs-btn-focus-shadow-rgb: 14, 174, 203;
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: purple;
+    --bs-btn-active-border-color: black;
+    --bs-btn-active-shadow: none;
+    --bs-btn-disabled-color: white;
+    --bs-btn-disabled-bg: purple;
+    --bs-btn-disabled-border-color: black;
+}
+
+.btn {
+    margin-right: 15px;
+}

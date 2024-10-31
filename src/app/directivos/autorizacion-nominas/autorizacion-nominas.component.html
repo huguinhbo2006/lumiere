@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header pb-0 bg-lumiere">
+        <div class="d-flex align-items-center">
+            <h5 class="mb-1 text-white">Autorizacion de nominas</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <app-select [dato]="idSucursal" [datos]="listas.sucursales" [etiqueta]="'Sucursal'" (emitidor)="idSucursal = $event; buscar();"></app-select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <app-datatable [configuracion]="configuracion" [datos]="datos" (emitidor)="seleccion = $event;"></app-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-botones *ngIf="seleccion !== undefined && seleccion.length > 0">
+    <button class="btn btn-success" (click)="autorizar();">Autorizar</button>
+    <button class="btn btn-yellow">Modificar</button>
+    <button class="btn btn-danger" (click)="imprimir();">Imprimir</button>
+</app-botones>
+<app-cargando *ngIf="cargando"></app-cargando>

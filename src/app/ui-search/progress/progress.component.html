@@ -1,0 +1,18 @@
+<div class="row text-black">
+    <div class="col-sm-12 text-center">
+        {{texto}}
+    </div>
+    <div class="col-sm-12 text-center">
+        {{simbolo}}{{cantidadTexto}} de {{simbolo}}{{totalTexto}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="progress" style="height: 25px;">
+            <app-checktimes *ngIf="multiple" (emitidor)="check = $event; emitir();"></app-checktimes>
+            <div class="progress-bar progress-bar-striped {{fondo}} progress-bar-animated" role="progressbar" [style]="'width:' + porcentaje + '%'">
+                {{porcentaje}}%
+            </div>
+        </div>
+    </div>
+</div>

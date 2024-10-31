@@ -1,0 +1,46 @@
+<div class="modal-header bg-{{(modificar) ? 'yellow' : 'success'}}">
+    <h4 class="text-white">{{(modificar) ? 'Modificar' : 'Agregar'}} Egreso</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <app-input [valor]="dato.concepto" [etiqueta]="'Concepto'" (emitidor)="dato.concepto = $event"></app-input>
+            </div>
+            <div class="col-sm-4">
+                <app-input [valor]="dato.monto" [etiqueta]="'Monto'" [validacion]="'decimal'" (emitidor)="dato.monto = $event;"></app-input>
+            </div>
+            <div class="col-sm-4">
+                <app-select [datos]="calendarios" [dato]="dato.idCalendario" [etiqueta]="'Calendario'" (emitidor)="dato.idCalendario = $event; buscarTipos();"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [datos]="listas.rubros" [dato]="dato.idRubro" [etiqueta]="'Rubro'" (emitidor)="dato.idRubro = $event; buscarTipos();"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [datos]="tipos" [dato]="dato.idTipo" [etiqueta]="'Tipo'" (emitidor)="dato.idTipo = $event;"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [datos]="listas.formas" [dato]="dato.idFormaPago" [etiqueta]="'Forma de pago'" (emitidor)="dato.idFormaPago = $event;"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [datos]="listas.niveles" [dato]="dato.idNivel" [etiqueta]="'Niveles'" (emitidor)="dato.idNivel = $event;"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [datos]="listas.cuentas" [dato]="dato.idCuenta" [etiqueta]="'Cuenta'" (emitidor)="dato.idCuenta = $event;" *ngIf="dato.idFormaPago.toString() !== '1'"></app-select>
+            </div>
+            <div class="col-sm-8">
+                <app-textarea [valor]="dato.observaciones" [etiqueta]="'Observaciones'" (emitidor)="dato.observaciones = $event;"></app-textarea>
+            </div>
+            <div class="col-sm-4">
+                <app-imagen [imagen]="dato.imagen" [valor]="dato.imagen" (emitidor)="dato.imagen = $event;"></app-imagen>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-sm-12 d-md-flex justify-content-md-end">
+                <button class="btn btn-success" (click)="emitir()">Guardar</button>
+                <button class="btn btn-danger" (click)="cerrar()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

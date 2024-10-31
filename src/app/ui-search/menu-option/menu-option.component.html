@@ -1,0 +1,17 @@
+<div class="row nav-link active" id="{{menu.nombre}}">
+    <div class="col-sm-2" (click)="emitir();">
+        <i class="{{menu.icono}} {{menu.color}}"></i>
+    </div>
+    <div class="col-sm-8" (click)="emitir();">
+        <span class="nav-link-text ms-1">{{menu.nombre}}</span> &nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-sm-2 amo" (click)="emitir();">
+        <i class="fas fa-plus" *ngIf="!menu.seleccionado"></i>
+        <i class="fas fa-minus" *ngIf="menu.seleccionado"></i>
+    </div>
+    <div class="row" *ngIf="menu.seleccionado">
+        <div class="col-sm-12" *ngFor="let submenu of menu.opciones">
+            <app-submenu-option [submenu]="submenu"></app-submenu-option>
+        </div>
+    </div>
+</div>

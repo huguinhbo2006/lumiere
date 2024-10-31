@@ -1,0 +1,30 @@
+<div class="modal-header bg-info">
+    <h4 class="text-white">Horarios</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <app-select [etiqueta]="'Turnos'" [datos]="listas.turnos" (emitidor)="grupo.idTurno = $event; buscar();"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [etiqueta]="'Horarios'" [datos]="horarios" (emitidor)="grupo.idHorario = $event;"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <br><button class="btn btn-success" (click)="nuevo();">Agregar</button>
+                <button class="btn btn-danger" (click)="eliminar();" *ngIf="seleccion !== undefined">Eliminar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <app-datatable [configuracion]="configuracion" [datos]="listas.grupos" (emitidor)="seleccion = $event;"></app-datatable>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-sm-12 d-md-flex justify-content-md-end">
+                <button class="btn btn-danger" (click)="cerrar()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<div class="form-group focused text-center">
+    <label class="form-control-label" for="{{id}}">{{etiqueta}}</label>
+    <input type="file" id="{{id}}" class="form-control form-control-alternative" [disabled]='activo' [(ngModel)]='valor' (change)='emitir($event.target)'>
+</div>

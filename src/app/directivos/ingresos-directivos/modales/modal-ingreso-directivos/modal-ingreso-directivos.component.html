@@ -1,0 +1,58 @@
+<div class="modal-header bg-{{(modificar) ? 'Yellow' : 'success'}}">
+    <h4 class="text-white">{{(modificar) ? 'Modificar' : 'Agregar'}} </h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <app-input [valor]="dato.concepto" [etiqueta]="'Concepto'" (emitidor)="dato.concepto= $event"></app-input>
+            </div>
+            <div class="col-sm-4">
+                <app-input [valor]="dato.monto" [etiqueta]="'Monto'" [validacion]="'decimal'" (emitidor)="dato.monto = $event;"></app-input>
+            </div>
+            <div class="col-sm-4">
+                <app-input [valor]="dato.fecha" [etiqueta]="'Fecha'" [tipo]="'date'" (emitidor)="dato.fecha = $event;"></app-input>
+            </div>
+            <div class="col-sm-4">
+                <app-select [etiqueta]="'Rubro'" [dato]="dato.idRubro" [datos]="listas.rubros" (emitidor)="dato.idRubro = $event; buscarTipos();"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [etiqueta]="'Tipo'" [dato]="dato.idTipo" [datos]="tipos" (emitidor)="dato.idTipo = $event;"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [etiqueta]="'Calendario'" [dato]="dato.idCalendario" [datos]="listas.calendarios" (emitidor)="dato.idCalendario = $event;"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [etiqueta]="'Forma de Pago'" [dato]="dato.idFormaPago" [datos]="listas.formas" (emitidor)="dato.idFormaPago = $event;"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [etiqueta]="'Metodo de Pago'" [dato]="dato.idMetodoPago" [datos]="listas.metodos" (emitidor)="dato.idMetodoPago = $event;"></app-select>
+            </div>
+            <div class="col-sm-4">
+                <app-select [etiqueta]="'Nivel'" [dato]="dato.idNivel" [datos]="listas.niveles" (emitidor)="dato.idNivel = $event;"></app-select>
+            </div>
+            <div class="col-sm-4" *ngIf="dato.idFormaPago.toString() !== '1' && dato.idFormaPago.toString() !== '0'">
+                <app-select [etiqueta]="'Banco'" [dato]="dato.idBanco" [datos]="listas.bancos" (emitidor)="dato.idBanco = $event;"></app-select>
+            </div>
+            <div class="col-sm-4" *ngIf="dato.idFormaPago.toString() !== '1' && dato.idFormaPago.toString() !== '0'">
+                <app-select [etiqueta]="'Cuenta'" [dato]="dato.idCuenta" [datos]="listas.cuentas" (emitidor)="dato.idCuenta = $event;"></app-select>
+            </div>
+            <div class="col-sm-4" *ngIf="dato.idFormaPago.toString() !== '1' && dato.idFormaPago.toString() !== '0'">
+                <app-input [valor]="dato.numeroReferencia" [etiqueta]="'Numero de Referencia'" (emitidor)="dato.numeroReferencia = $event"></app-input>
+            </div>
+            <div class="col-sm-4" *ngIf="dato.idFormaPago.toString() !== '1' && dato.idFormaPago.toString() !== '0'">
+                <app-input [valor]="dato.nombreCuenta" [etiqueta]="'Propietario de la Cuenta'" (emitidor)="dato.nombreCuenta = $event"></app-input>
+            </div>
+            <div class="col-sm-4" *ngIf="dato.idFormaPago.toString() !== '1' && dato.idFormaPago.toString() !== '0'">
+                <app-imagen [imagen]="dato.imagen" [valor]="dato.imagen" (emitidor)="dato.imagen = $event;"></app-imagen>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-sm-12 d-md-flex justify-content-md-end">
+                <button class="btn btn-success" (click)="emitir()">Guardar</button>
+                <button class="btn btn-danger" (click)="cerrar()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

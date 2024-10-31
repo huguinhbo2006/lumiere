@@ -1,0 +1,32 @@
+.example-handle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ccc;
+    cursor: move;
+    width: 24px;
+    height: 24px;
+}
+
+.example-close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #ccc;
+    width: 24px;
+    height: 24px;
+}
+
+.caja-busqueda-posicion {
+    right: auto;
+    left: 5%;
+    background-color: #E4E6E8;
+    padding: 15px;
+    top: 25%;
+    max-width: 100%;
+    width: 350px;
+    height: 350px;
+    overflow: scroll;
+    cursor: default;
+    z-index: 2165165156;
+}
