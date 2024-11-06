@@ -21,7 +21,7 @@
                 <app-select [etiqueta]="'Tipo'" [dato]="dato.idTipo" [datos]="tipos" (emitidor)="dato.idTipo = $event;"></app-select>
             </div>
             <div class="col-sm-4">
-                <app-select [etiqueta]="'Calendario'" [dato]="dato.idCalendario" [datos]="listas.calendarios" (emitidor)="dato.idCalendario = $event;"></app-select>
+                <app-select [des]="modificar" [etiqueta]="'Calendario'" [dato]="dato.idCalendario" [datos]="listas.calendarios" (emitidor)="dato.idCalendario = $event;"></app-select>
             </div>
             <div class="col-sm-4">
                 <app-select [etiqueta]="'Forma de Pago'" [dato]="dato.idFormaPago" [datos]="listas.formas" (emitidor)="dato.idFormaPago = $event;"></app-select>
@@ -30,7 +30,7 @@
                 <app-select [etiqueta]="'Metodo de Pago'" [dato]="dato.idMetodoPago" [datos]="listas.metodos" (emitidor)="dato.idMetodoPago = $event;"></app-select>
             </div>
             <div class="col-sm-4">
-                <app-select [etiqueta]="'Nivel'" [dato]="dato.idNivel" [datos]="listas.niveles" (emitidor)="dato.idNivel = $event;"></app-select>
+                <app-select [des]="modificar" [etiqueta]="'Nivel'" [dato]="dato.idNivel" [datos]="listas.niveles" (emitidor)="dato.idNivel = $event;"></app-select>
             </div>
             <div class="col-sm-4" *ngIf="dato.idFormaPago.toString() !== '1' && dato.idFormaPago.toString() !== '0'">
                 <app-select [etiqueta]="'Banco'" [dato]="dato.idBanco" [datos]="listas.bancos" (emitidor)="dato.idBanco = $event;"></app-select>

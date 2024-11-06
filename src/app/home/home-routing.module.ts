@@ -58,6 +58,7 @@ import { PermisosComponent } from '../directivos/permisos/permisos.component';
 import { MetasIngresosComponent } from '../directivos/metas-ingresos/metas-ingresos.component';
 import { AutorizacionNominasComponent } from '../directivos/autorizacion-nominas/autorizacion-nominas.component';
 import { RecepcionValesComponent } from '../directivos/recepcion-vales/recepcion-vales.component';
+import { SolicitudesModificacionIngresosComponent } from '../directivos/solicitudes-modificacion-ingresos/solicitudes-modificacion-ingresos.component';
 
 const routes: Routes = [
   {path: '', canActivate: [auntenticacionGuard], component: InicioComponent, children: [
@@ -119,6 +120,7 @@ const routes: Routes = [
     { path: 'metasIngresosEstadisticas', canActivate: [auntenticacionGuard], component: MetasIngresosComponent },
     { path: 'aceptacionNominasDirectivos', canActivate: [auntenticacionGuard], component: AutorizacionNominasComponent},
     { path: 'recepcionVales', canActivate: [auntenticacionGuard], component: RecepcionValesComponent},
+    { path: 'solicitudesModificacionIngresos', canActivate: [auntenticacionGuard], component: SolicitudesModificacionIngresosComponent},
   ]}
 ];
 

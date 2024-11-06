@@ -44,6 +44,7 @@ export class DatatableComponent {
     if(icono !== null && icono !== undefined){
       incluye = (icono.toString().includes('fas fa') || icono.toString().includes('fab fa'));
     }
+    console.log(incluye + icono);
     return incluye
   }
 

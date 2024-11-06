@@ -49,13 +49,28 @@ export class IngresosService {
     return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
   }
 
-  actualizarVoucher(body: any){
-    const url = this.uri + 'actualizarVoucher';
+  cargar(body: any){
+    const url = this.uri + 'cargar';
     return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
   }
 
-  traerVoucher(body: any){
-    const url = this.uri + 'traerVoucher';
+  voucher(body: any){
+    const url = this.uri + 'voucher';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
+  solicitudes(){
+    const url = this.uri + 'solicitudes';
+    return this.http.get(url, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
+  aceptar(body: any){
+    const url = this.uri + 'aceptar';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
+  rechazar(body: any){
+    const url = this.uri + 'rechazar';
     return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
   }
   

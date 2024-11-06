@@ -12,7 +12,7 @@ import { PdfService } from '../../servicios/pdf.service';
 export class IngresosDirectivosComponent {
   configuracion: datatableConfig = {
     alias: ['Calendario', 'Nivel', 'Folio', 'Fecha y Hora', 'Rubro', 'Concepto', 'Forma de pago', 'Cuenta', 'Monto', 'Vocuher'],
-    encabezados: ['calendario', 'nivel', 'folio', 'fecha', 'rubro', 'concepto', 'forma', 'cuenta', 'monto', 'hayVooucher'],
+    encabezados: ['calendario', 'nivel', 'folio', 'fecha', 'rubro', 'concepto', 'forma', 'cuenta', 'montoFormato', 'hayVoucher'],
     busqueda: true
   };
   listas = {
@@ -93,7 +93,7 @@ export class IngresosDirectivosComponent {
       this.servicio.modificar(dato).subscribe((respuesta: any) => {
         this.cargando = false;
         this.generales.mensajeCorrecto('Ingreso modificado correctamente');
-        this.datos = this.generales.agregarDatoArray(this.datos, respuesta);
+        this.datos = this.generales.actualizarDatoArray(this.datos, respuesta);
         this.generales.cerrarModal();
       },
       error => {
@@ -139,7 +139,7 @@ export class IngresosDirectivosComponent {
       id: this.seleccion.id,
       imagen: voucher
     }
-    this.servicio.actualizarVoucher(body).subscribe((respuesta: any) => {
+    this.servicio.cargar(body).subscribe((respuesta: any) => {
       this.cargando = false;
       this.generales.mensajeCorrecto('Voucher actualizado correctamente');
       this.generales.cerrarModal();
@@ -151,7 +151,7 @@ export class IngresosDirectivosComponent {
   }
 
   verImagen(){
-    this.servicio.traerVoucher(this.seleccion).subscribe((respuesta: any) => {
+    this.servicio.voucher(this.seleccion).subscribe((respuesta: any) => {
       this.imagen = respuesta;
       this.cargando = false;
       this.modal('imagen');
