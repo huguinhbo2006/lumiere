@@ -8,6 +8,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { CatalogosModule } from '../catalogos/catalogos.module';
 import { DesarrolloModule } from '../desarrollo/desarrollo.module';
 import { DirectivosModule } from '../directivos/directivos.module';
+import { AdministradorModule } from '../administrador/administrador.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { DirectivosModule } from '../directivos/directivos.module';
     UiSearchModule,
     CatalogosModule,
     DesarrolloModule,
-    DirectivosModule
+    DirectivosModule,
+    AdministradorModule
   ]
 })
 export class HomeModule { }

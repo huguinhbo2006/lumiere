@@ -23,6 +23,16 @@ export class NominasService {
     const url = this.uri + 'autorizar';
     return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
   }
+
+  autorizadas(body: any) {
+    const url = this.uri + 'autorizadas';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
+  cobrar(body: any) {
+    const url = this.uri + 'cobrar';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
   
   validar(dato: any){
     if(this.generales.validarString(dato.nombre)){

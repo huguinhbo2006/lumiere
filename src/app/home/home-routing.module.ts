@@ -59,6 +59,7 @@ import { MetasIngresosComponent } from '../directivos/metas-ingresos/metas-ingre
 import { AutorizacionNominasComponent } from '../directivos/autorizacion-nominas/autorizacion-nominas.component';
 import { RecepcionValesComponent } from '../directivos/recepcion-vales/recepcion-vales.component';
 import { SolicitudesModificacionIngresosComponent } from '../directivos/solicitudes-modificacion-ingresos/solicitudes-modificacion-ingresos.component';
+import { CobroNominasComponent } from '../administrador/cobro-nominas/cobro-nominas.component';
 
 const routes: Routes = [
   {path: '', canActivate: [auntenticacionGuard], component: InicioComponent, children: [
@@ -121,6 +122,7 @@ const routes: Routes = [
     { path: 'aceptacionNominasDirectivos', canActivate: [auntenticacionGuard], component: AutorizacionNominasComponent},
     { path: 'recepcionVales', canActivate: [auntenticacionGuard], component: RecepcionValesComponent},
     { path: 'solicitudesModificacionIngresos', canActivate: [auntenticacionGuard], component: SolicitudesModificacionIngresosComponent},
+    { path: 'cobroNominas', canActivate: [auntenticacionGuard], component: CobroNominasComponent},
   ]}
 ];
 
