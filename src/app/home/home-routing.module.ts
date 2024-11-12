@@ -60,6 +60,8 @@ import { AutorizacionNominasComponent } from '../directivos/autorizacion-nominas
 import { RecepcionValesComponent } from '../directivos/recepcion-vales/recepcion-vales.component';
 import { SolicitudesModificacionIngresosComponent } from '../directivos/solicitudes-modificacion-ingresos/solicitudes-modificacion-ingresos.component';
 import { CobroNominasComponent } from '../administrador/cobro-nominas/cobro-nominas.component';
+import { CorteCajaComponent } from '../administrador/corte-caja/corte-caja.component';
+import { CursosCongeladosComponent } from '../administrador/cursos-congelados/cursos-congelados.component';
 
 const routes: Routes = [
   {path: '', canActivate: [auntenticacionGuard], component: InicioComponent, children: [
@@ -123,6 +125,8 @@ const routes: Routes = [
     { path: 'recepcionVales', canActivate: [auntenticacionGuard], component: RecepcionValesComponent},
     { path: 'solicitudesModificacionIngresos', canActivate: [auntenticacionGuard], component: SolicitudesModificacionIngresosComponent},
     { path: 'cobroNominas', canActivate: [auntenticacionGuard], component: CobroNominasComponent},
+    { path: 'balanceAdministrativos', canActivate: [auntenticacionGuard], component: CorteCajaComponent},
+    { path: 'cursosCongelados', canActivate: [auntenticacionGuard], component: CursosCongeladosComponent},
   ]}
 ];
 

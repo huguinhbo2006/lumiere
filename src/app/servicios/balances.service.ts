@@ -18,4 +18,9 @@ export class BalancesService {
     const url = this.uri + 'mostrar';
     return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
   }
+
+  corte(body: any){
+    const url = this.uri + 'corte';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
 }

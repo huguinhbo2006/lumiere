@@ -1399,7 +1399,7 @@ export class PdfService {
 
   async pdfCorte(body: any) {
     this.servicio.corte(body).subscribe((respuesta: any) => {
-      let logo = this.generales.logo;
+      let logo = this.generales.logos;
       const pdf = new PdfMakeWrapper();
       pdf.pageMargins([ 20, 20, 20, 20 ]);
       pdf.pageSize('A4');
@@ -1568,8 +1568,8 @@ export class PdfService {
       ]).widths(['100%']).layout('noBorders').end;
       pdf.add(encabezadoSaldos);
 
-      let saldo: string = body.saldoTotal
-      let saldoInicial = parseFloat(saldo.replace(',', ''));
+      let saldo = respuesta.saldoTotal;
+      let saldoInicial = parseFloat(saldo);
       saldoInicial = saldoInicial + parseFloat(respuesta.montoEgresos);
       saldoInicial = saldoInicial - parseFloat(respuesta.montoIngresos);
 
@@ -1580,11 +1580,11 @@ export class PdfService {
         ],
         [
           new Cell(new Txt('Saldo actual en sucursal').fontSize(10).color('white').bold().end).fillColor('#2F75B5').end,
-          new Cell(new Txt('$' + body.saldoTotal).fontSize(10).bold().end).end
+          new Cell(new Txt('$' + this.generales.milesNumeros(respuesta.saldoTotal)).fontSize(10).bold().end).end
         ],
         [
           new Cell(new Txt('Saldo en vale administrativo').fontSize(10).color('white').bold().end).fillColor('#2F75B5').end,
-          new Cell(new Txt('$' + body.saldoValeAdministrativo).fontSize(10).bold().end).end
+          new Cell(new Txt('$' + this.generales.milesNumeros(respuesta.vale)).fontSize(10).bold().end).end
         ]
       ]).widths(['40%', '20%']).alignment('center').end;
       pdf.add(tablaInscripciones);

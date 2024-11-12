@@ -42,6 +42,7 @@ export class CobroNominasComponent {
     this.servicio.cobrar(this.seleccion).subscribe((respuesta: any) => {
       this.cargando = false;
       this.generales.mensajeCorrecto('Nomina cobrada correctamente');
+      this.datos = this.generales.eliminarDatoArray(this.datos, respuesta);
     },
     error => {
       this.cargando = false;
