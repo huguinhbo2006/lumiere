@@ -23,4 +23,19 @@ export class BalancesService {
     const url = this.uri + 'corte';
     return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
   }
+
+  nuevoVale(body: any){
+    const url = this.uri + 'nuevoVale';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
+  saldoVale(body: any){
+    const url = this.uri + 'saldoVale';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
+  saldoCaja(body: any){
+    const url = this.uri + 'saldoCaja';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
 }

@@ -50,7 +50,7 @@ export class RecepcionValesComponent {
     });
   }
 
-  eliminar(){
+  rechazar(){
     this.cargando = true;
     this.servicio.eliminar(this.seleccion).subscribe((respuesta: any) => {
       this.cargando = false;

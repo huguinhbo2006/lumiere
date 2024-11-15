@@ -15,7 +15,7 @@
                 <div class="col-sm-12">
                     <app-card [color]="'green'" [colorLetra]="'white'" [encabezado]="'Ingresos'">
                         <div class="row">
-                            <div class="col-sm-2" *ngFor="let ingreso of ingresos">
+                            <div class="col-sm-3" *ngFor="let ingreso of ingresos">
                                 <app-circulo [cantidad]="ingreso.cantidad" [forma]="ingreso.forma"></app-circulo>
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                 <div class="col-sm-12">
                     <app-card [color]="'red'" [colorLetra]="'white'" [encabezado]="'Egresos'">
                         <div class="row">
-                            <div class="col-sm-2" *ngFor="let egreso of egresos">
+                            <div class="col-sm-3" *ngFor="let egreso of egresos">
                                 <app-circulo [cantidad]="egreso.cantidad" [forma]="egreso.forma"></app-circulo>
                             </div>
                         </div>
@@ -37,10 +37,10 @@
                 <div class="col-sm-12">
                     <app-card [color]="'lumiere'" [colorLetra]="'white'" [encabezado]="'Efectivo en Sucursal'">
                         <div class="row">
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <app-circulo [cantidad]="total" [forma]="'Total'"></app-circulo>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <app-circulo [cantidad]="administrativo" [forma]="'Vale Administrativo'"></app-circulo>
                             </div>
                         </div>

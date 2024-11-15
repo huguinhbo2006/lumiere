@@ -24,6 +24,26 @@ export class ValesService {
     return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
   }
 
+  rechazar(body: any) {
+    const url = this.uri + 'rechazar';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
+  creados(body: any) {
+    const url = this.uri + 'creados';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
+  nuevo(body: any){
+    const url = this.uri + 'nuevo';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
+  modificar(body: any){
+    const url = this.uri + 'modificar';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
+
   eliminar(body: any) {
     const url = this.uri + 'eliminar';
     return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );

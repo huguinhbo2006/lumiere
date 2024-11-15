@@ -42,6 +42,9 @@ import { SolicitudesModificacionIngresosComponent } from './solicitudes-modifica
   imports: [
     CommonModule,
     UiSearchModule
+  ],
+  exports: [
+    ModalEgresoDirectivosComponent
   ]
 })
 export class DirectivosModule { }

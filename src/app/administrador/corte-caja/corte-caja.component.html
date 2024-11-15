@@ -43,6 +43,21 @@
                             <div class="col-sm-3">
                                 <app-circulo [cantidad]="administrativo" [forma]="'Vale Administrativo'"></app-circulo>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="row" *ngIf="!existe">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-success">Crear Vale Adnimistrativo</button>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="existe">
+                                    <div class="col-sm-6">
+                                        <button class="btn btn-primary" (click)="caja()">Pasar a caja</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button class="btn btn-primary" (click)="vale();">Pasar a vale</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </app-card>
                 </div>

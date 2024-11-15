@@ -53,6 +53,11 @@ export class EgresosService {
     const url = this.uri + 'actualizarFecha';
     return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
   }
+
+  solicitarModificacion(body: any){
+    const url = this.uri + 'solicitarModificacion';
+    return this.http.post(url, body, {headers: this.headers}).pipe( map(respuesta => respuesta) );
+  }
   
   validar(dato: any){
     if(this.generales.validarString(dato.concepto)){
